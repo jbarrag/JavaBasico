@@ -1,3 +1,7 @@
+
+
+    
+    
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,48 +9,89 @@
  */
 package javabasico;
 
+import java.util.Iterator;
+import java.util.function.Consumer;
+
 /**
  *
- * @author Jamm
+ * @author jjimen7
  */
-public class ListaSimple {
-protected Nodo primero;
+public class ListaSimple<T> implements Iterable<T> {
+    
+    private Nodo root;
+    private Nodo nodoAct;
+    private Nodo nodoActualRecorrido;
 
-    public void Insertar(Object dato)
-    {
-        Nodo temporal = new Nodo(dato, null);
-        temporal.setNext(primero);
-        primero = temporal;
+    public ListaSimple(T objeto) {
+        Nodo nodo=new Nodo(objeto);
+        this.root = nodo;
+        this.nodoAct = nodo;
+        this.nodoActualRecorrido=nodo;
     }
 
-    public ListaSimple() {
-        this.primero = null;
+    public Nodo getRoot() {
+        return root;
+    }
+
+    public void setRoot(Nodo root) {
+        this.root = root;
+    }
+
+    public Nodo getNodoAct() {
+        return nodoAct;
+    }
+
+    public void setNodoAct(Nodo nodoAct) {
+        this.nodoAct = nodoAct;
     }
     
-    public void imprimir(int n) {
-    
-    if (!Vacio()) {
-      Nodo temporal = primero;
-
-      
-      for (int i = 0; i < n; i++) {
-        temporal = temporal.getNext();
-        if (temporal == null)
-          return;
-      }
-      System.out.println(temporal.getValue());
+    public void insertarNodo(T objeto) {
+        
+        
+        Nodo nodo=new Nodo(objeto);
+       
+       this.nodoAct.setNext(nodo);
+       this.nodoAct=nodo;
+       
     }
-  }
-
-
-
-  public boolean Vacio() {
-    if (primero == null)
-      return true;
-    else
-      return false;
-  }
-
     
+    public void listar(){
+    Nodo nodo=this.root;
+        System.out.println(nodo);
+    while(nodo.getNext()!=null){
+        nodo=nodo.getNext();
+        System.out.println(nodo);
+    }
     
+    }
+
+    public class MyIterator implements  Iterator<T>{
+        
+        Nodo iterador;
+
+        public MyIterator() {
+            this.iterador = iterador;
+        }
+        
+    
+    @Override
+    public boolean hasNext() {
+        
+        return iterador != null;
+         
+    }
+
+    @Override
+    public T next() {
+        T valor = (T)iterador.getValue();
+        iterador =  iterador.getNext();
+        return valor;
+    }
+    }
+    
+    @Override
+    public Iterator iterator() {
+        return new MyIterator(); //To change body of generated methods, choose Tools | Templates.
+    }
 }
+

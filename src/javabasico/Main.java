@@ -5,9 +5,11 @@
  */
 package javabasico;
 
+import java.util.Iterator;
+
 /**
  *
- * @author Jamm
+ * @author jjimen7
  */
 public class Main {
 
@@ -16,54 +18,67 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+      try{  
         
-        ListaSimple lista = new ListaSimple();
+        ListaSimple<String> lista=new ListaSimple("1");
+                
+        
+        
+        lista.insertarNodo("2");
+        lista.insertarNodo("3");
+        lista.insertarNodo("4");
+        lista.insertarNodo("5");
+        lista.insertarNodo("6");
+        lista.insertarNodo("7");
+        lista.insertarNodo("8");
+        lista.insertarNodo("9");
+        lista.insertarNodo("10");
+        
+          for (String s : lista) {
+              System.out.println(s);
+          }
+        
+//        while(lista.hasNext()) {       
+//    System.out.println(lista.next()+" Con Iterator");
+//        }
 
-    lista.Insertar("1");
-    lista.Insertar("2");
-    lista.Insertar("3");
-    lista.Insertar("4");
-    lista.Insertar("5");
-    lista.Insertar("6");
-    lista.Insertar("7");
-    lista.Insertar("8");
-    lista.Insertar("9");
-    lista.Insertar("10");
-    
-    lista.imprimir(0);
-    lista.imprimir(1);
-    lista.imprimir(2);
-    lista.imprimir(3);
-    lista.imprimir(4);
-    lista.imprimir(5);
-    lista.imprimir(6);
-    lista.imprimir(7);
-    lista.imprimir(8);
-    lista.imprimir(9);
-    
-     System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------");
-    
-    ListaArray lA=new ListaArray();
-        lA.insertarNuevoElemento("1");
-        lA.insertarNuevoElemento("2");        
-        lA.insertarNuevoElemento("3");
-        lA.insertarNuevoElemento("4");
-        lA.insertarNuevoElemento("5");        
-        lA.insertarNuevoElemento("6");
-        lA.insertarNuevoElemento("7");
-        lA.insertarNuevoElemento("8");        
-        lA.insertarNuevoElemento("9");
-        lA.insertarNuevoElemento("10");
         
-        lA.mostrarElementos();
-    
-    
-        System.out.println("Tamaño :"+lA.gettamanno());
+                 
+       
+       // lista.listar();
         
-    
-    
-    
-    
+        ListaArray<String> listaArray=new ListaArray();
+        listaArray.insertar("1");
+        listaArray.insertar("2");        
+        listaArray.insertar("3");
+        listaArray.insertar("4");
+        listaArray.insertar("5");        
+        listaArray.insertar("6");
+        listaArray.insertar("7");
+        listaArray.insertar("8");        
+        listaArray.insertar("9");
+        listaArray.insertar("10");
+        listaArray.insertar("11");        
+        listaArray.insertar("12");
+        listaArray.insertar("13");
+        listaArray.insertar("14");        
+        listaArray.insertar("15");
+        listaArray.insertar("16");
+        listaArray.insertar("17");        
+        listaArray.insertar("18");
+        
+        for(String valor:listaArray){
+            System.out.println(valor+" Con Iterable");
+            
+        }
+            
+            
+       
+        
+      }catch(Exception ex){
+          System.out.println(ex.getMessage());
+      }
+        
     }
-    
-}
+}    
+

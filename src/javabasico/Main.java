@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -96,7 +97,14 @@ public class Main {
         System.out.println("imprimir 20-11");
         arrayList.stream().filter(num -> 10<Integer.parseInt(num) ).sorted(c).forEach(s -> System.out.println(s));
         
+          System.out.println("imprimir 100");
+        HashMap<String, String> hm = new HashMap();
         
+          for (int i = 0; i < 100; i++) {
+              hm.put(i+"", new  StringBuilder(i+"").reverse().toString());
+          }
+          
+          hm.values().stream().sorted(c).forEach(s -> System.out.println(s));
         
         
         

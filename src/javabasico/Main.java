@@ -5,6 +5,10 @@
  */
 package javabasico;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 
 /**
@@ -72,9 +76,21 @@ public class Main {
             
         }
             
-            
+        ArrayList<String> arrayList = new ArrayList();
+          for (int i = 0; i < 20; i++) {
+              arrayList.add(i+"");
+          }
+          
+          Comparator<String> c =   (o1,o2) ->{
+        return o2.compareTo(o1);
+      };
        
+          System.out.println("Imprimendo array List");
+        Collections.sort(arrayList, c);
         
+        for(String s : arrayList){
+            System.out.println(s);
+        }
       }catch(Exception ex){
           System.out.println(ex.getMessage());
       }

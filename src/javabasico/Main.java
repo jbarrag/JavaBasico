@@ -10,6 +10,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -91,6 +93,13 @@ public class Main {
         for(String s : arrayList){
             System.out.println(s);
         }
+        System.out.println("imprimir 20-11");
+        arrayList.stream().filter(num -> 10<Integer.parseInt(num) ).sorted(c).forEach(s -> System.out.println(s));
+        
+        
+        
+        
+        
       }catch(Exception ex){
           System.out.println(ex.getMessage());
       }
